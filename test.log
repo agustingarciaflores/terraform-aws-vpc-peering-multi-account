@@ -1,0 +1,1693 @@
+
+Test: check if terraform modules are properly pinned
+File: module-pinning.bats
+---------------------------------
+'terraform-config-inspect' must be installed in the test harness. Check https://github.com/hashicorp/terraform-config-inspect for instructions 
+---------------------------------
+
+
+Test: check if terraform providers are properly pinned
+File: provider-pinning.bats
+---------------------------------
+'terraform-config-inspect' must be installed in the test harness. Check https://github.com/hashicorp/terraform-config-inspect for instructions 
+---------------------------------
+
+
+Test: check if terraform providers have explicit source locations for TF =>0.13
+File: provider-pinning.bats
+---------------------------------
+'terraform-config-inspect' must be installed in the test harness. Check https://github.com/hashicorp/terraform-config-inspect for instructions 
+---------------------------------
+
+
+Test: check if terraform code is valid
+File: validate.bats
+---------------------------------
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_vpc.requester its original provider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].requester is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy data.aws_vpc.requester, after which you
+[31m│[0m [0mcan remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_route_table.requester its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].requester
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_route_table.requester, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_route_tables.default_rts its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].accepter
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_route_tables.default_rts, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_vpc_peering_connection_options.accepter its original
+[31m│[0m [0mprovider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].accepter is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy
+[31m│[0m [0maws_vpc_peering_connection_options.accepter, after which you can remove the
+[31m│[0m [0mprovider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_caller_identity.requester its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].requester
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_caller_identity.requester, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_route.requester its original provider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].requester is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy aws_route.requester, after which you can
+[31m│[0m [0mremove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_region.requester its original provider configuration
+[31m│[0m [0mat provider["registry.terraform.io/hashicorp/aws"].requester is required,
+[31m│[0m [0mbut it has been removed. This occurs when a provider configuration is
+[31m│[0m [0mremoved while objects created by that provider still exist in the state.
+[31m│[0m [0mRe-add the provider configuration to destroy data.aws_region.requester,
+[31m│[0m [0mafter which you can remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_caller_identity.accepter its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].accepter
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_caller_identity.accepter, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_subnets.requester its original provider configuration
+[31m│[0m [0mat provider["registry.terraform.io/hashicorp/aws"].requester is required,
+[31m│[0m [0mbut it has been removed. This occurs when a provider configuration is
+[31m│[0m [0mremoved while objects created by that provider still exist in the state.
+[31m│[0m [0mRe-add the provider configuration to destroy data.aws_subnets.requester,
+[31m│[0m [0mafter which you can remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_route_tables.accepter its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].accepter
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_route_tables.accepter, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_vpc_peering_connection_options.requester its original
+[31m│[0m [0mprovider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].requester is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy
+[31m│[0m [0maws_vpc_peering_connection_options.requester, after which you can remove
+[31m│[0m [0mthe provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_subnets.accepter its original provider configuration
+[31m│[0m [0mat provider["registry.terraform.io/hashicorp/aws"].accepter is required,
+[31m│[0m [0mbut it has been removed. This occurs when a provider configuration is
+[31m│[0m [0mremoved while objects created by that provider still exist in the state.
+[31m│[0m [0mRe-add the provider configuration to destroy data.aws_subnets.accepter,
+[31m│[0m [0mafter which you can remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_route.accepter its original provider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].accepter is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy aws_route.accepter, after which you can
+[31m│[0m [0mremove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_region.accepter its original provider configuration
+[31m│[0m [0mat provider["registry.terraform.io/hashicorp/aws"].accepter is required,
+[31m│[0m [0mbut it has been removed. This occurs when a provider configuration is
+[31m│[0m [0mremoved while objects created by that provider still exist in the state.
+[31m│[0m [0mRe-add the provider configuration to destroy data.aws_region.accepter,
+[31m│[0m [0mafter which you can remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_vpc_peering_connection_accepter.accepter its original
+[31m│[0m [0mprovider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].accepter is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy
+[31m│[0m [0maws_vpc_peering_connection_accepter.accepter, after which you can remove
+[31m│[0m [0mthe provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_vpc_peering_connection.requester its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].requester
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0maws_vpc_peering_connection.requester, after which you can remove the
+[31m│[0m [0mprovider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_vpc.accepter its original provider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].accepter is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy data.aws_vpc.accepter, after which you
+[31m│[0m [0mcan remove the provider configuration again.
+[31m╵[0m[0m
+---------------------------------
+
+
+Test: check if terraform modules are properly pinned
+File: module-pinning.bats
+---------------------------------
+'terraform-config-inspect' must be installed in the test harness. Check https://github.com/hashicorp/terraform-config-inspect for instructions 
+---------------------------------
+
+
+Test: check if terraform providers are properly pinned
+File: provider-pinning.bats
+---------------------------------
+'terraform-config-inspect' must be installed in the test harness. Check https://github.com/hashicorp/terraform-config-inspect for instructions 
+---------------------------------
+
+
+Test: check if terraform providers have explicit source locations for TF =>0.13
+File: provider-pinning.bats
+---------------------------------
+'terraform-config-inspect' must be installed in the test harness. Check https://github.com/hashicorp/terraform-config-inspect for instructions 
+---------------------------------
+
+
+Test: check if terraform code is valid
+File: validate.bats
+---------------------------------
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_vpc_peering_connection_accepter.accepter its original
+[31m│[0m [0mprovider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].accepter is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy
+[31m│[0m [0maws_vpc_peering_connection_accepter.accepter, after which you can remove
+[31m│[0m [0mthe provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_vpc_peering_connection_options.requester its original
+[31m│[0m [0mprovider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].requester is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy
+[31m│[0m [0maws_vpc_peering_connection_options.requester, after which you can remove
+[31m│[0m [0mthe provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_subnets.requester its original provider configuration
+[31m│[0m [0mat provider["registry.terraform.io/hashicorp/aws"].requester is required,
+[31m│[0m [0mbut it has been removed. This occurs when a provider configuration is
+[31m│[0m [0mremoved while objects created by that provider still exist in the state.
+[31m│[0m [0mRe-add the provider configuration to destroy data.aws_subnets.requester,
+[31m│[0m [0mafter which you can remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_region.requester its original provider configuration
+[31m│[0m [0mat provider["registry.terraform.io/hashicorp/aws"].requester is required,
+[31m│[0m [0mbut it has been removed. This occurs when a provider configuration is
+[31m│[0m [0mremoved while objects created by that provider still exist in the state.
+[31m│[0m [0mRe-add the provider configuration to destroy data.aws_region.requester,
+[31m│[0m [0mafter which you can remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_caller_identity.requester its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].requester
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_caller_identity.requester, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_vpc.accepter its original provider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].accepter is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy data.aws_vpc.accepter, after which you
+[31m│[0m [0mcan remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_vpc_peering_connection_options.accepter its original
+[31m│[0m [0mprovider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].accepter is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy
+[31m│[0m [0maws_vpc_peering_connection_options.accepter, after which you can remove the
+[31m│[0m [0mprovider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_caller_identity.accepter its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].accepter
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_caller_identity.accepter, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_route.requester its original provider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].requester is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy aws_route.requester, after which you can
+[31m│[0m [0mremove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_route_table.requester its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].requester
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_route_table.requester, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_region.accepter its original provider configuration
+[31m│[0m [0mat provider["registry.terraform.io/hashicorp/aws"].accepter is required,
+[31m│[0m [0mbut it has been removed. This occurs when a provider configuration is
+[31m│[0m [0mremoved while objects created by that provider still exist in the state.
+[31m│[0m [0mRe-add the provider configuration to destroy data.aws_region.accepter,
+[31m│[0m [0mafter which you can remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_route_tables.default_rts its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].accepter
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_route_tables.default_rts, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_vpc_peering_connection.requester its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].requester
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0maws_vpc_peering_connection.requester, after which you can remove the
+[31m│[0m [0mprovider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_route_tables.accepter its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].accepter
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_route_tables.accepter, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_vpc.requester its original provider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].requester is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy data.aws_vpc.requester, after which you
+[31m│[0m [0mcan remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_route.accepter its original provider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].accepter is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy aws_route.accepter, after which you can
+[31m│[0m [0mremove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_subnets.accepter its original provider configuration
+[31m│[0m [0mat provider["registry.terraform.io/hashicorp/aws"].accepter is required,
+[31m│[0m [0mbut it has been removed. This occurs when a provider configuration is
+[31m│[0m [0mremoved while objects created by that provider still exist in the state.
+[31m│[0m [0mRe-add the provider configuration to destroy data.aws_subnets.accepter,
+[31m│[0m [0mafter which you can remove the provider configuration again.
+[31m╵[0m[0m
+---------------------------------
+
+
+Test: check if terraform modules are properly pinned
+File: module-pinning.bats
+---------------------------------
+'terraform-config-inspect' must be installed in the test harness. Check https://github.com/hashicorp/terraform-config-inspect for instructions 
+---------------------------------
+
+
+Test: check if terraform providers are properly pinned
+File: provider-pinning.bats
+---------------------------------
+'terraform-config-inspect' must be installed in the test harness. Check https://github.com/hashicorp/terraform-config-inspect for instructions 
+---------------------------------
+
+
+Test: check if terraform providers have explicit source locations for TF =>0.13
+File: provider-pinning.bats
+---------------------------------
+'terraform-config-inspect' must be installed in the test harness. Check https://github.com/hashicorp/terraform-config-inspect for instructions 
+---------------------------------
+
+
+Test: check if terraform code is valid
+File: validate.bats
+---------------------------------
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_route.requester its original provider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].requester is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy aws_route.requester, after which you can
+[31m│[0m [0mremove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_vpc_peering_connection_options.accepter its original
+[31m│[0m [0mprovider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].accepter is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy
+[31m│[0m [0maws_vpc_peering_connection_options.accepter, after which you can remove the
+[31m│[0m [0mprovider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_vpc.requester its original provider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].requester is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy data.aws_vpc.requester, after which you
+[31m│[0m [0mcan remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_caller_identity.requester its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].requester
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_caller_identity.requester, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_region.accepter its original provider configuration
+[31m│[0m [0mat provider["registry.terraform.io/hashicorp/aws"].accepter is required,
+[31m│[0m [0mbut it has been removed. This occurs when a provider configuration is
+[31m│[0m [0mremoved while objects created by that provider still exist in the state.
+[31m│[0m [0mRe-add the provider configuration to destroy data.aws_region.accepter,
+[31m│[0m [0mafter which you can remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_subnets.requester its original provider configuration
+[31m│[0m [0mat provider["registry.terraform.io/hashicorp/aws"].requester is required,
+[31m│[0m [0mbut it has been removed. This occurs when a provider configuration is
+[31m│[0m [0mremoved while objects created by that provider still exist in the state.
+[31m│[0m [0mRe-add the provider configuration to destroy data.aws_subnets.requester,
+[31m│[0m [0mafter which you can remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_vpc_peering_connection_options.requester its original
+[31m│[0m [0mprovider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].requester is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy
+[31m│[0m [0maws_vpc_peering_connection_options.requester, after which you can remove
+[31m│[0m [0mthe provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_region.requester its original provider configuration
+[31m│[0m [0mat provider["registry.terraform.io/hashicorp/aws"].requester is required,
+[31m│[0m [0mbut it has been removed. This occurs when a provider configuration is
+[31m│[0m [0mremoved while objects created by that provider still exist in the state.
+[31m│[0m [0mRe-add the provider configuration to destroy data.aws_region.requester,
+[31m│[0m [0mafter which you can remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_route_tables.default_rts its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].accepter
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_route_tables.default_rts, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_vpc.accepter its original provider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].accepter is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy data.aws_vpc.accepter, after which you
+[31m│[0m [0mcan remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_route.accepter its original provider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].accepter is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy aws_route.accepter, after which you can
+[31m│[0m [0mremove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_vpc_peering_connection_accepter.accepter its original
+[31m│[0m [0mprovider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].accepter is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy
+[31m│[0m [0maws_vpc_peering_connection_accepter.accepter, after which you can remove
+[31m│[0m [0mthe provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_vpc_peering_connection.requester its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].requester
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0maws_vpc_peering_connection.requester, after which you can remove the
+[31m│[0m [0mprovider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_caller_identity.accepter its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].accepter
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_caller_identity.accepter, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_route_table.requester its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].requester
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_route_table.requester, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_subnets.accepter its original provider configuration
+[31m│[0m [0mat provider["registry.terraform.io/hashicorp/aws"].accepter is required,
+[31m│[0m [0mbut it has been removed. This occurs when a provider configuration is
+[31m│[0m [0mremoved while objects created by that provider still exist in the state.
+[31m│[0m [0mRe-add the provider configuration to destroy data.aws_subnets.accepter,
+[31m│[0m [0mafter which you can remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_route_tables.accepter its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].accepter
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_route_tables.accepter, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+---------------------------------
+
+
+Test: check if terraform modules are properly pinned
+File: module-pinning.bats
+---------------------------------
+'terraform-config-inspect' must be installed in the test harness. Check https://github.com/hashicorp/terraform-config-inspect for instructions 
+---------------------------------
+
+
+Test: check if terraform providers are properly pinned
+File: provider-pinning.bats
+---------------------------------
+'terraform-config-inspect' must be installed in the test harness. Check https://github.com/hashicorp/terraform-config-inspect for instructions 
+---------------------------------
+
+
+Test: check if terraform providers have explicit source locations for TF =>0.13
+File: provider-pinning.bats
+---------------------------------
+'terraform-config-inspect' must be installed in the test harness. Check https://github.com/hashicorp/terraform-config-inspect for instructions 
+---------------------------------
+
+
+Test: check if terraform code is valid
+File: validate.bats
+---------------------------------
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_region.requester its original provider configuration
+[31m│[0m [0mat provider["registry.terraform.io/hashicorp/aws"].requester is required,
+[31m│[0m [0mbut it has been removed. This occurs when a provider configuration is
+[31m│[0m [0mremoved while objects created by that provider still exist in the state.
+[31m│[0m [0mRe-add the provider configuration to destroy data.aws_region.requester,
+[31m│[0m [0mafter which you can remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_vpc.accepter its original provider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].accepter is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy data.aws_vpc.accepter, after which you
+[31m│[0m [0mcan remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_vpc_peering_connection_options.accepter its original
+[31m│[0m [0mprovider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].accepter is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy
+[31m│[0m [0maws_vpc_peering_connection_options.accepter, after which you can remove the
+[31m│[0m [0mprovider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_vpc_peering_connection_accepter.accepter its original
+[31m│[0m [0mprovider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].accepter is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy
+[31m│[0m [0maws_vpc_peering_connection_accepter.accepter, after which you can remove
+[31m│[0m [0mthe provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_subnets.requester its original provider configuration
+[31m│[0m [0mat provider["registry.terraform.io/hashicorp/aws"].requester is required,
+[31m│[0m [0mbut it has been removed. This occurs when a provider configuration is
+[31m│[0m [0mremoved while objects created by that provider still exist in the state.
+[31m│[0m [0mRe-add the provider configuration to destroy data.aws_subnets.requester,
+[31m│[0m [0mafter which you can remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_route_table.requester its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].requester
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_route_table.requester, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_vpc.requester its original provider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].requester is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy data.aws_vpc.requester, after which you
+[31m│[0m [0mcan remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_region.accepter its original provider configuration
+[31m│[0m [0mat provider["registry.terraform.io/hashicorp/aws"].accepter is required,
+[31m│[0m [0mbut it has been removed. This occurs when a provider configuration is
+[31m│[0m [0mremoved while objects created by that provider still exist in the state.
+[31m│[0m [0mRe-add the provider configuration to destroy data.aws_region.accepter,
+[31m│[0m [0mafter which you can remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_route.accepter its original provider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].accepter is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy aws_route.accepter, after which you can
+[31m│[0m [0mremove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_vpc_peering_connection.requester its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].requester
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0maws_vpc_peering_connection.requester, after which you can remove the
+[31m│[0m [0mprovider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_caller_identity.accepter its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].accepter
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_caller_identity.accepter, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_vpc_peering_connection_options.requester its original
+[31m│[0m [0mprovider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].requester is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy
+[31m│[0m [0maws_vpc_peering_connection_options.requester, after which you can remove
+[31m│[0m [0mthe provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_route_tables.accepter its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].accepter
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_route_tables.accepter, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_route_tables.default_rts its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].accepter
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_route_tables.default_rts, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_caller_identity.requester its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].requester
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_caller_identity.requester, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_route.requester its original provider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].requester is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy aws_route.requester, after which you can
+[31m│[0m [0mremove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_subnets.accepter its original provider configuration
+[31m│[0m [0mat provider["registry.terraform.io/hashicorp/aws"].accepter is required,
+[31m│[0m [0mbut it has been removed. This occurs when a provider configuration is
+[31m│[0m [0mremoved while objects created by that provider still exist in the state.
+[31m│[0m [0mRe-add the provider configuration to destroy data.aws_subnets.accepter,
+[31m│[0m [0mafter which you can remove the provider configuration again.
+[31m╵[0m[0m
+---------------------------------
+
+
+Test: check if terraform modules are properly pinned
+File: module-pinning.bats
+---------------------------------
+'terraform-config-inspect' must be installed in the test harness. Check https://github.com/hashicorp/terraform-config-inspect for instructions 
+---------------------------------
+
+
+Test: check if terraform providers are properly pinned
+File: provider-pinning.bats
+---------------------------------
+'terraform-config-inspect' must be installed in the test harness. Check https://github.com/hashicorp/terraform-config-inspect for instructions 
+---------------------------------
+
+
+Test: check if terraform providers have explicit source locations for TF =>0.13
+File: provider-pinning.bats
+---------------------------------
+'terraform-config-inspect' must be installed in the test harness. Check https://github.com/hashicorp/terraform-config-inspect for instructions 
+---------------------------------
+
+
+Test: check if terraform code is valid
+File: validate.bats
+---------------------------------
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_vpc.requester its original provider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].requester is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy data.aws_vpc.requester, after which you
+[31m│[0m [0mcan remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_region.accepter its original provider configuration
+[31m│[0m [0mat provider["registry.terraform.io/hashicorp/aws"].accepter is required,
+[31m│[0m [0mbut it has been removed. This occurs when a provider configuration is
+[31m│[0m [0mremoved while objects created by that provider still exist in the state.
+[31m│[0m [0mRe-add the provider configuration to destroy data.aws_region.accepter,
+[31m│[0m [0mafter which you can remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_vpc_peering_connection_options.accepter its original
+[31m│[0m [0mprovider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].accepter is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy
+[31m│[0m [0maws_vpc_peering_connection_options.accepter, after which you can remove the
+[31m│[0m [0mprovider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_subnets.accepter its original provider configuration
+[31m│[0m [0mat provider["registry.terraform.io/hashicorp/aws"].accepter is required,
+[31m│[0m [0mbut it has been removed. This occurs when a provider configuration is
+[31m│[0m [0mremoved while objects created by that provider still exist in the state.
+[31m│[0m [0mRe-add the provider configuration to destroy data.aws_subnets.accepter,
+[31m│[0m [0mafter which you can remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_vpc_peering_connection.requester its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].requester
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0maws_vpc_peering_connection.requester, after which you can remove the
+[31m│[0m [0mprovider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_vpc.accepter its original provider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].accepter is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy data.aws_vpc.accepter, after which you
+[31m│[0m [0mcan remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_region.requester its original provider configuration
+[31m│[0m [0mat provider["registry.terraform.io/hashicorp/aws"].requester is required,
+[31m│[0m [0mbut it has been removed. This occurs when a provider configuration is
+[31m│[0m [0mremoved while objects created by that provider still exist in the state.
+[31m│[0m [0mRe-add the provider configuration to destroy data.aws_region.requester,
+[31m│[0m [0mafter which you can remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_vpc_peering_connection_accepter.accepter its original
+[31m│[0m [0mprovider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].accepter is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy
+[31m│[0m [0maws_vpc_peering_connection_accepter.accepter, after which you can remove
+[31m│[0m [0mthe provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_route_tables.default_rts its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].accepter
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_route_tables.default_rts, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_route.accepter its original provider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].accepter is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy aws_route.accepter, after which you can
+[31m│[0m [0mremove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_caller_identity.accepter its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].accepter
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_caller_identity.accepter, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_caller_identity.requester its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].requester
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_caller_identity.requester, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_route_tables.accepter its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].accepter
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_route_tables.accepter, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_route_table.requester its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].requester
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_route_table.requester, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_vpc_peering_connection_options.requester its original
+[31m│[0m [0mprovider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].requester is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy
+[31m│[0m [0maws_vpc_peering_connection_options.requester, after which you can remove
+[31m│[0m [0mthe provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_subnets.requester its original provider configuration
+[31m│[0m [0mat provider["registry.terraform.io/hashicorp/aws"].requester is required,
+[31m│[0m [0mbut it has been removed. This occurs when a provider configuration is
+[31m│[0m [0mremoved while objects created by that provider still exist in the state.
+[31m│[0m [0mRe-add the provider configuration to destroy data.aws_subnets.requester,
+[31m│[0m [0mafter which you can remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_route.requester its original provider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].requester is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy aws_route.requester, after which you can
+[31m│[0m [0mremove the provider configuration again.
+[31m╵[0m[0m
+---------------------------------
+
+
+Test: check if terraform code needs formatting
+File: lint.bats
+---------------------------------
+versions.tf
+---------------------------------
+
+
+Test: check if terraform modules are properly pinned
+File: module-pinning.bats
+---------------------------------
+'terraform-config-inspect' must be installed in the test harness. Check https://github.com/hashicorp/terraform-config-inspect for instructions 
+---------------------------------
+
+
+Test: check if terraform providers are properly pinned
+File: provider-pinning.bats
+---------------------------------
+'terraform-config-inspect' must be installed in the test harness. Check https://github.com/hashicorp/terraform-config-inspect for instructions 
+---------------------------------
+
+
+Test: check if terraform providers have explicit source locations for TF =>0.13
+File: provider-pinning.bats
+---------------------------------
+'terraform-config-inspect' must be installed in the test harness. Check https://github.com/hashicorp/terraform-config-inspect for instructions 
+---------------------------------
+
+
+Test: check if terraform code is valid
+File: validate.bats
+---------------------------------
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_route.accepter its original provider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].accepter is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy aws_route.accepter, after which you can
+[31m│[0m [0mremove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_vpc_peering_connection_options.accepter its original
+[31m│[0m [0mprovider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].accepter is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy
+[31m│[0m [0maws_vpc_peering_connection_options.accepter, after which you can remove the
+[31m│[0m [0mprovider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_vpc.accepter its original provider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].accepter is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy data.aws_vpc.accepter, after which you
+[31m│[0m [0mcan remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_vpc.requester its original provider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].requester is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy data.aws_vpc.requester, after which you
+[31m│[0m [0mcan remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_subnets.requester its original provider configuration
+[31m│[0m [0mat provider["registry.terraform.io/hashicorp/aws"].requester is required,
+[31m│[0m [0mbut it has been removed. This occurs when a provider configuration is
+[31m│[0m [0mremoved while objects created by that provider still exist in the state.
+[31m│[0m [0mRe-add the provider configuration to destroy data.aws_subnets.requester,
+[31m│[0m [0mafter which you can remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_route_tables.default_rts its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].accepter
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_route_tables.default_rts, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_vpc_peering_connection_options.requester its original
+[31m│[0m [0mprovider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].requester is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy
+[31m│[0m [0maws_vpc_peering_connection_options.requester, after which you can remove
+[31m│[0m [0mthe provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_region.accepter its original provider configuration
+[31m│[0m [0mat provider["registry.terraform.io/hashicorp/aws"].accepter is required,
+[31m│[0m [0mbut it has been removed. This occurs when a provider configuration is
+[31m│[0m [0mremoved while objects created by that provider still exist in the state.
+[31m│[0m [0mRe-add the provider configuration to destroy data.aws_region.accepter,
+[31m│[0m [0mafter which you can remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_route.requester its original provider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].requester is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy aws_route.requester, after which you can
+[31m│[0m [0mremove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_region.requester its original provider configuration
+[31m│[0m [0mat provider["registry.terraform.io/hashicorp/aws"].requester is required,
+[31m│[0m [0mbut it has been removed. This occurs when a provider configuration is
+[31m│[0m [0mremoved while objects created by that provider still exist in the state.
+[31m│[0m [0mRe-add the provider configuration to destroy data.aws_region.requester,
+[31m│[0m [0mafter which you can remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_subnets.accepter its original provider configuration
+[31m│[0m [0mat provider["registry.terraform.io/hashicorp/aws"].accepter is required,
+[31m│[0m [0mbut it has been removed. This occurs when a provider configuration is
+[31m│[0m [0mremoved while objects created by that provider still exist in the state.
+[31m│[0m [0mRe-add the provider configuration to destroy data.aws_subnets.accepter,
+[31m│[0m [0mafter which you can remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_vpc_peering_connection_accepter.accepter its original
+[31m│[0m [0mprovider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].accepter is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy
+[31m│[0m [0maws_vpc_peering_connection_accepter.accepter, after which you can remove
+[31m│[0m [0mthe provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_caller_identity.accepter its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].accepter
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_caller_identity.accepter, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_caller_identity.requester its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].requester
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_caller_identity.requester, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_route_tables.accepter its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].accepter
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_route_tables.accepter, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_route_table.requester its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].requester
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_route_table.requester, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_vpc_peering_connection.requester its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].requester
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0maws_vpc_peering_connection.requester, after which you can remove the
+[31m│[0m [0mprovider configuration again.
+[31m╵[0m[0m
+---------------------------------
+
+
+Test: check if terraform code needs formatting
+File: lint.bats
+---------------------------------
+versions.tf
+---------------------------------
+
+
+Test: check if terraform modules are properly pinned
+File: module-pinning.bats
+---------------------------------
+'terraform-config-inspect' must be installed in the test harness. Check https://github.com/hashicorp/terraform-config-inspect for instructions 
+---------------------------------
+
+
+Test: check if terraform providers are properly pinned
+File: provider-pinning.bats
+---------------------------------
+'terraform-config-inspect' must be installed in the test harness. Check https://github.com/hashicorp/terraform-config-inspect for instructions 
+---------------------------------
+
+
+Test: check if terraform providers have explicit source locations for TF =>0.13
+File: provider-pinning.bats
+---------------------------------
+'terraform-config-inspect' must be installed in the test harness. Check https://github.com/hashicorp/terraform-config-inspect for instructions 
+---------------------------------
+
+
+Test: check if terraform code is valid
+File: validate.bats
+---------------------------------
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_region.accepter its original provider configuration
+[31m│[0m [0mat provider["registry.terraform.io/hashicorp/aws"].accepter is required,
+[31m│[0m [0mbut it has been removed. This occurs when a provider configuration is
+[31m│[0m [0mremoved while objects created by that provider still exist in the state.
+[31m│[0m [0mRe-add the provider configuration to destroy data.aws_region.accepter,
+[31m│[0m [0mafter which you can remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_route.accepter its original provider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].accepter is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy aws_route.accepter, after which you can
+[31m│[0m [0mremove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_route_tables.accepter its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].accepter
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_route_tables.accepter, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_route_table.requester its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].requester
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_route_table.requester, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_route.requester its original provider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].requester is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy aws_route.requester, after which you can
+[31m│[0m [0mremove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_vpc_peering_connection.requester its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].requester
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0maws_vpc_peering_connection.requester, after which you can remove the
+[31m│[0m [0mprovider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_subnets.requester its original provider configuration
+[31m│[0m [0mat provider["registry.terraform.io/hashicorp/aws"].requester is required,
+[31m│[0m [0mbut it has been removed. This occurs when a provider configuration is
+[31m│[0m [0mremoved while objects created by that provider still exist in the state.
+[31m│[0m [0mRe-add the provider configuration to destroy data.aws_subnets.requester,
+[31m│[0m [0mafter which you can remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_vpc.requester its original provider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].requester is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy data.aws_vpc.requester, after which you
+[31m│[0m [0mcan remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_vpc_peering_connection_options.accepter its original
+[31m│[0m [0mprovider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].accepter is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy
+[31m│[0m [0maws_vpc_peering_connection_options.accepter, after which you can remove the
+[31m│[0m [0mprovider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_region.requester its original provider configuration
+[31m│[0m [0mat provider["registry.terraform.io/hashicorp/aws"].requester is required,
+[31m│[0m [0mbut it has been removed. This occurs when a provider configuration is
+[31m│[0m [0mremoved while objects created by that provider still exist in the state.
+[31m│[0m [0mRe-add the provider configuration to destroy data.aws_region.requester,
+[31m│[0m [0mafter which you can remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_vpc_peering_connection_options.requester its original
+[31m│[0m [0mprovider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].requester is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy
+[31m│[0m [0maws_vpc_peering_connection_options.requester, after which you can remove
+[31m│[0m [0mthe provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_vpc_peering_connection_accepter.accepter its original
+[31m│[0m [0mprovider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].accepter is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy
+[31m│[0m [0maws_vpc_peering_connection_accepter.accepter, after which you can remove
+[31m│[0m [0mthe provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_subnets.accepter its original provider configuration
+[31m│[0m [0mat provider["registry.terraform.io/hashicorp/aws"].accepter is required,
+[31m│[0m [0mbut it has been removed. This occurs when a provider configuration is
+[31m│[0m [0mremoved while objects created by that provider still exist in the state.
+[31m│[0m [0mRe-add the provider configuration to destroy data.aws_subnets.accepter,
+[31m│[0m [0mafter which you can remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_caller_identity.accepter its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].accepter
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_caller_identity.accepter, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_route_tables.default_rts its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].accepter
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_route_tables.default_rts, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_vpc.accepter its original provider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].accepter is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy data.aws_vpc.accepter, after which you
+[31m│[0m [0mcan remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_caller_identity.requester its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].requester
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_caller_identity.requester, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+---------------------------------
+
+
+Test: check if terraform code needs formatting
+File: lint.bats
+---------------------------------
+versions.tf
+---------------------------------
+
+
+Test: check if terraform modules are properly pinned
+File: module-pinning.bats
+---------------------------------
+'terraform-config-inspect' must be installed in the test harness. Check https://github.com/hashicorp/terraform-config-inspect for instructions 
+---------------------------------
+
+
+Test: check if terraform providers are properly pinned
+File: provider-pinning.bats
+---------------------------------
+'terraform-config-inspect' must be installed in the test harness. Check https://github.com/hashicorp/terraform-config-inspect for instructions 
+---------------------------------
+
+
+Test: check if terraform providers have explicit source locations for TF =>0.13
+File: provider-pinning.bats
+---------------------------------
+'terraform-config-inspect' must be installed in the test harness. Check https://github.com/hashicorp/terraform-config-inspect for instructions 
+---------------------------------
+
+
+Test: check if terraform code is valid
+File: validate.bats
+---------------------------------
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_route_table.requester its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].requester
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_route_table.requester, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_vpc.accepter its original provider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].accepter is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy data.aws_vpc.accepter, after which you
+[31m│[0m [0mcan remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_route_tables.accepter its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].accepter
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_route_tables.accepter, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_route.accepter its original provider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].accepter is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy aws_route.accepter, after which you can
+[31m│[0m [0mremove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_vpc_peering_connection.requester its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].requester
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0maws_vpc_peering_connection.requester, after which you can remove the
+[31m│[0m [0mprovider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_subnets.accepter its original provider configuration
+[31m│[0m [0mat provider["registry.terraform.io/hashicorp/aws"].accepter is required,
+[31m│[0m [0mbut it has been removed. This occurs when a provider configuration is
+[31m│[0m [0mremoved while objects created by that provider still exist in the state.
+[31m│[0m [0mRe-add the provider configuration to destroy data.aws_subnets.accepter,
+[31m│[0m [0mafter which you can remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_route.requester its original provider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].requester is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy aws_route.requester, after which you can
+[31m│[0m [0mremove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_caller_identity.accepter its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].accepter
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_caller_identity.accepter, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_vpc_peering_connection_accepter.accepter its original
+[31m│[0m [0mprovider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].accepter is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy
+[31m│[0m [0maws_vpc_peering_connection_accepter.accepter, after which you can remove
+[31m│[0m [0mthe provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_subnets.requester its original provider configuration
+[31m│[0m [0mat provider["registry.terraform.io/hashicorp/aws"].requester is required,
+[31m│[0m [0mbut it has been removed. This occurs when a provider configuration is
+[31m│[0m [0mremoved while objects created by that provider still exist in the state.
+[31m│[0m [0mRe-add the provider configuration to destroy data.aws_subnets.requester,
+[31m│[0m [0mafter which you can remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_route_tables.default_rts its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].accepter
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_route_tables.default_rts, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_vpc.requester its original provider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].requester is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy data.aws_vpc.requester, after which you
+[31m│[0m [0mcan remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_vpc_peering_connection_options.requester its original
+[31m│[0m [0mprovider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].requester is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy
+[31m│[0m [0maws_vpc_peering_connection_options.requester, after which you can remove
+[31m│[0m [0mthe provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_region.requester its original provider configuration
+[31m│[0m [0mat provider["registry.terraform.io/hashicorp/aws"].requester is required,
+[31m│[0m [0mbut it has been removed. This occurs when a provider configuration is
+[31m│[0m [0mremoved while objects created by that provider still exist in the state.
+[31m│[0m [0mRe-add the provider configuration to destroy data.aws_region.requester,
+[31m│[0m [0mafter which you can remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with aws_vpc_peering_connection_options.accepter its original
+[31m│[0m [0mprovider configuration at
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/aws"].accepter is required, but
+[31m│[0m [0mit has been removed. This occurs when a provider configuration is removed
+[31m│[0m [0mwhile objects created by that provider still exist in the state. Re-add the
+[31m│[0m [0mprovider configuration to destroy
+[31m│[0m [0maws_vpc_peering_connection_options.accepter, after which you can remove the
+[31m│[0m [0mprovider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_region.accepter its original provider configuration
+[31m│[0m [0mat provider["registry.terraform.io/hashicorp/aws"].accepter is required,
+[31m│[0m [0mbut it has been removed. This occurs when a provider configuration is
+[31m│[0m [0mremoved while objects created by that provider still exist in the state.
+[31m│[0m [0mRe-add the provider configuration to destroy data.aws_region.accepter,
+[31m│[0m [0mafter which you can remove the provider configuration again.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mProvider configuration not present[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mTo work with data.aws_caller_identity.requester its original provider
+[31m│[0m [0mconfiguration at provider["registry.terraform.io/hashicorp/aws"].requester
+[31m│[0m [0mis required, but it has been removed. This occurs when a provider
+[31m│[0m [0mconfiguration is removed while objects created by that provider still exist
+[31m│[0m [0min the state. Re-add the provider configuration to destroy
+[31m│[0m [0mdata.aws_caller_identity.requester, after which you can remove the provider
+[31m│[0m [0mconfiguration again.
+[31m╵[0m[0m
+---------------------------------
+
