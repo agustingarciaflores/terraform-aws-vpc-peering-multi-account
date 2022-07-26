@@ -1,3 +1,15 @@
+variable "auto_accept" {
+  type        = bool
+  default     = true
+  description = "Automatically accept the peering"
+}
+
+variable "accepter_enabled" {
+  description = "Flag to enable/disable the accepter side of the peering connection"
+  type        = bool
+  default     = true
+}
+
 variable "accepter_vpc_id" {
   type        = string
   description = "Accepter VPC ID filter"

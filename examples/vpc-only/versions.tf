@@ -14,9 +14,5 @@ terraform {
       source  = "hashicorp/local"
       version = ">= 1.3"
     }
-    template = {
-      source  = "hashicorp/template"
-      version = ">= 2.0"
-    }
   }
 }
